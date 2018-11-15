@@ -1,0 +1,49 @@
+data:
+  article1 :
+    id : 1
+    titre : 'Tip Aligning Digital Marketing with Business Goals and Objectives'
+    contenu    : '<p>CONTENU</p>'
+    featuredimage : '6.jpg'
+    special : false
+    spotlight : true
+    datecreation : 2017-02-26 09:37:18
+    categorie:
+      id : 2
+      libelle : 'Business'
+    auteur:
+      id : 1
+      prenom : 'Hugo'
+      nom : 'LIEGEARD'
+      email : 'wf3@hl-media.fr'
+  article2 :
+    id: 2
+    titre: "Ca C'est l'article de mon article2 et franchement c'est du lourd"
+    contenu: '<p>CONTENU</p>'
+    featuredimage: '4.jpg'
+    special: false
+    spotlight: false
+    datecreation: 2016-02-26 09:37:18
+    categorie:
+      id: 3
+      libelle: 'Computing'
+    auteur:
+      id: 2
+      prenom: 'Fabien'
+      nom: 'BRIVE'
+      email: 'wf4@hl-media.fr'
+  article3 :
+    id: 3
+    titre: "Et puis voila ca c'est les troisième du coup"
+    contenu: '<p>CONTENU</p>'
+    featuredimage: '5.jpg'
+    special: false
+    spotlight: true
+    datecreation: 2018-02-26 09:37:18
+    categorie:
+      id: 4
+      libelle: Tech'
+    auteur:
+      id: 1
+      prenom: 'Hugo'
+      nom: 'LIEGEARD'
+      email: 'wf3@hl-media.fr'
