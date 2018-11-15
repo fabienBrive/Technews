@@ -10,21 +10,27 @@ namespace App\Membre;
 
 
 use App\Entity\Membre;
+use App\Membre\Event\MembreEvent;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class MembreRequestHandler
 {
-    private $manager, $membreFactory;
+    private $manager, $membreFactory, $dispacher;
 
     /**
      * MembreRequestHandler constructor.
-     * @param $manager
-     * @param $membreFactory
+     * @param ObjectManager $manager
+     * @param EventDispatcherInterface $dispatcher
+     * @param MembreFactory $membreFactory
      */
-    public function __construct(ObjectManager $manager, MembreFactory $membreFactory)
+    public function __construct(ObjectManager $manager,
+                                EventDispatcherInterface $dispatcher,
+                                MembreFactory $membreFactory)
     {
         $this->manager = $manager;
         $this->membreFactory = $membreFactory;
+        $this->dispacher = $dispatcher;
     }
 
 
@@ -36,6 +42,9 @@ class MembreRequestHandler
         #on sauvegarde dans la BDD le nouveau membre
         $this->manager->persist($membre);
         $this->manager->flush();
+
+        # On emet notre événement
+        $this->dispacher->dispatch(MembreEvents::MEMBRE_CREATED, new MembreEvent($membre));
 
         # On retourne le nouvel utilisateur
         return $membre;

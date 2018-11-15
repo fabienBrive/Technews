@@ -12,6 +12,7 @@ namespace App\Service\Twig;
 use App\Entity\Categorie;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Twig\Extension\AbstractExtension;
 
 class AppExtension extends AbstractExtension
@@ -19,17 +20,22 @@ class AppExtension extends AbstractExtension
     /**
      * Entity Manager
      */
-    private $em;
+    private $em, $session;
     public const NB_SUMMURY_CHAR = 170;
 
     /**
      * AppExtension constructor.
      * @param EntityManagerInterface $manager
+     * @param SessionInterface $session
      */
-    public function __construct(EntityManagerInterface $manager)
+    public function __construct(EntityManagerInterface $manager,
+                                SessionInterface $session)
     {
         #récupération du EntityManger de doctrine
         $this->em = $manager;
+
+        # Récupération de la session
+        $this->session = $session;
     }
 
     public function getFunctions()
@@ -38,6 +44,9 @@ class AppExtension extends AbstractExtension
           new \Twig_Function('getCategories', function(){
               return $this->em->getRepository(Categorie::class)
                   ->findCartegoriesHavingArticles();
+          }),
+        new \Twig_Function('isUserInvited', function(){
+              return $this->session->get('inviteUserModal');
           })
         ];
     }
@@ -63,6 +72,10 @@ class AppExtension extends AbstractExtension
           }, ['is_safe' => ['html']])
         ];
     }
+
+
+
+
 
 
 }

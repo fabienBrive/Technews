@@ -137,9 +137,9 @@ class Membre implements UserInterface
         return $this->derniereConnection;
     }
 
-    public function setDerniereConnection(\DateTimeInterface $derniereConnection): self
+    public function setDerniereConnection(string $timestamp = 'now'): self
     {
-        $this->derniereConnection = $derniereConnection;
+        $this->derniereConnection = new \DateTime($timestamp);
 
         return $this;
     }
