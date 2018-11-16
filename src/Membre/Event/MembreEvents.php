@@ -6,7 +6,7 @@
  * Time: 15:03
  */
 
-namespace App\Membre;
+namespace App\Membre\Event;
 
 /**
  * Sert à définir nos évenements

@@ -6,12 +6,13 @@
  * Time: 14:12
  */
 
-namespace App\Membre;
+namespace App\Membre\EventListener;
 
 
 use App\Entity\Membre;
 use App\Entity\Newsletter;
 use App\Membre\Event\MembreEvent;
+use App\Membre\Event\MembreEvents;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
