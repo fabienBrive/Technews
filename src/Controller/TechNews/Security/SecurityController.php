@@ -20,7 +20,10 @@ class SecurityController extends Controller
 
     /**
      * Connexion d'un membre
-     * @Route("/connexion", name="security_connexion")
+     * @Route({
+     *     "fr": "/connexion",
+     *     "en": "/login"
+     * }, name="security_connexion", name="security_connexion")
      * @param Request $request
      * @param AuthenticationUtils $authenticationUtils
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -48,7 +51,10 @@ class SecurityController extends Controller
 
     /**
      * Deconnexion d'un memebre
-     * @Route("/deconnexion", name="security_deconnexion")
+     * @Route({
+     *     "fr": "/deconnexion",
+     *     "en": "/logout"
+     * },
      */
     public function deconnection()
     {

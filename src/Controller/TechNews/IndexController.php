@@ -34,13 +34,18 @@ class IndexController extends Controller
     /**
      * Page permettant d'afficher les articles
      * d'une catégorie.
-     * @Route("/categorie/{slug<\w+>}",
+     * @Route({
+     *     "fr": "/{_locale}/categorie/{slug<\w+>}"
+     *     "en": "/{_locale}/category/{slug<\w+>}"
+     * },
      *     name="index_categorie",
-     *     defaults={"slug":"breaking-news"},
+     *     defaults={
+     *          "slug":"breaking-news"
+     *          "locale": "fr"
+     *     },
      *     requirements={"slug"="\w+"},
      *     methods={"GET"})
      * @param Categorie $categorie
-     * @param $slug
      * @return Response
      */
     public function categorie(Categorie $categorie = null)
@@ -70,8 +75,9 @@ class IndexController extends Controller
     }
     /**
      * Afficher un Article
-     * @Route("/{categorie<\w+>}/{slug}_{id<\d+>}.html",
-     *     name="index_article")
+     * @Route("/{_locale}/{categorie<\w+>}/{slug}_{id<\d+>}.html",
+     *     name="index_article",
+     *     default= "locale": "fr")
      * @param Article $article
      * @return Response
      */

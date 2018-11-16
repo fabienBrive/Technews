@@ -19,7 +19,7 @@
 
             <!--post-detail-->
             <article class="post-detail">
-                <h1>{{ article.titre | title }}</h1>
+                <h1 {{ article.titre | title }} </h1>
                 <div class="meta-post">
                     <a href="#">
                         {{ article.membre.prenom ~ ' ' ~ article.membre.nom }}
@@ -30,7 +30,8 @@
                     </span>
                 </div>
                 {#{% dump article.featuredImage %}#}
-                <img src="{{ asset('images/product/' ~ article.featuredImage) }}" alt="">
+                <img src="{{ asset('images/product/' ~ article.featuredImage) }}"
+                     alt="{{ asset('images/product/' ~ article.featuredImage) }}">
 
                 {{ article.contenu | raw}}
 
@@ -41,7 +42,7 @@
             </article>
             <!--social-detail-->
             <div class="social-detail">
-                <span>   Partager notre article </span>
+                <span> {{ 'article.link.social' | trans }} </span>
 
                 <ul class="list-social-icon">
                     <li>
@@ -80,7 +81,7 @@
 
             <!--related post-->
             <div class="detail-caption">
-                <span>  Articles liés</span>
+                <span>  {{ 'articles.associates' | trans }}</span>
             </div>
             <section class="spotlight-thumbs spotlight-thumbs-related">
                 <div class="row">

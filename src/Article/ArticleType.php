@@ -34,7 +34,7 @@ class ArticleType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Titre de l\'article'
+                    'placeholder' => 'titre article'
                 ]
             ])
             # champ Categorie
@@ -67,7 +67,7 @@ class ArticleType extends AbstractType
             # champ Special
             ->add('special', CheckboxType::class, [
                 'required'  => false,
-                'label'     => 'Article special',
+                'label'     => 'article special',
                 'attr'      => [
                     'data-toggle'   => 'toggle',
                     'data-on'       => 'Oui',
@@ -78,7 +78,7 @@ class ArticleType extends AbstractType
             # champ Spotlight
             ->add('spotlight', CheckboxType::class, [
                 'required'  => false,
-                'label'     => 'Article Spotlight',
+                'label'     => 'article spotlight',
                 'attr'      => [
                     'data-toggle'   => 'toggle',
                     'data-on'       => 'Oui',
@@ -91,7 +91,7 @@ class ArticleType extends AbstractType
 
             # champ Submit
             ->add('submit', SubmitType::class, [
-                'label' => 'Publier'
+                'label' => 'publier'
             ])
         ;
     }
@@ -103,7 +103,8 @@ class ArticleType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => ArticleRequest::class,
-            'image_url' => null
+            'image_url' => null,
+            'translation_domain' => 'forms'
         ]);
     }
 

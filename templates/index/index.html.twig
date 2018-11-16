@@ -3,7 +3,7 @@
 {% set active = 'index' %}
 
 {% block page_title %}
-    Accueil
+    {% trans from 'nav' %}nav.home{% endtrans %}
 {% endblock %}
 
 {% block stylesheets %}
@@ -12,7 +12,6 @@
 {% endblock %}
 
 {% block content %}
-
     {#{% dump articles  %}#}
     {#{{ dump(app.user) }}#}
 

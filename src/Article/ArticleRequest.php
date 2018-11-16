@@ -20,23 +20,23 @@ class ArticleRequest
 
     private $id;
     /**
-     * @Assert\NotBlank(message="vous devez saisir un titre")
+     * @Assert\NotBlank(message="asserts.article.title.notblank")
      * @Assert\Length(
      *     max="255",
-     *     maxMessage="Votre message est trop long, pas plus de {{ limirt }} caractères."
+     *     maxMessage="Votre message est trop long, pas plus de {{ limit }} caractères."
      * )
      */
     private $titre;
     private $slug;
     /**
-     * @Assert\NotBlank(message="N'oublieez pas votre article. Ce serait dommâge...")
+     * @Assert\NotBlank(message="asserts.article.contenu.notblank")
      */
     private $contenu;
     /**
      * @Assert\Image(
-     *     mimeTypesMessage="Vérifier le format de votre fichier. Uniquement des images.",
+     *     mimeTypesMessage="asserts.article.image.mimetype",
      *     maxSize="2M",
-     *     maxSizeMessage="Votre image est trop lourde, pas plus de  2M."
+     *     maxSizeMessage="asserts.article.image.maxsize"
      * )
      */
     private $featuredImage;

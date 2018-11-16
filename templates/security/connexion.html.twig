@@ -3,13 +3,13 @@
 {% set active = "connexion" %}
 
 {% block page_title %}
-    Connexion
+    {% trans from 'nav'%}nav.connexion{% endtrans %}
 {% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="col-xs-6 col-xs-push-3">
-            <h2 class="text-center">Connexion</h2>
+            <h2 class="text-center">{% trans from 'nav' %}nav.connexion{% endtrans %}</h2>
             {% if error %}
                 <div class="alert alert-dansger">
                     {{ error.messageKey | trans(error.messageData, 'security') }}
