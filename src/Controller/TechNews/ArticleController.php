@@ -15,8 +15,10 @@ use App\Article\ArticleRequestHandler;
 use App\Article\ArticleRequestUpdateHandler;
 use App\Article\ArticleType;
 use App\Article\Mediator\ArticleMediator;
+use App\Article\Mediator\DoctrineProvider;
 use App\Article\Mediator\DoctrineSource;
 use App\Article\Mediator\YamlMediator;
+use App\Article\Mediator\YamlSource;
 use App\Article\Provider\YamlProvider;
 use App\Controller\HelperTrait;
 use App\Entity\Article;
@@ -33,6 +35,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Yaml\Yaml;
 
 
 class ArticleController extends Controller
@@ -189,27 +192,5 @@ class ArticleController extends Controller
         return $this->render('article/form.html.twig', [
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/test-mediator", name="index_testMediator")
-     * @param YamlProvider $yamlArticles
-     * @param DoctrineSource $doctrineArticles
-     * @return Response
-     */
-    public function testMediator(YamlProvider $yamlArticles, DoctrineSource $doctrineArticles)
-    {
-        $articlesD = $doctrineArticles->getArticles();
-        $articlesY = $yamlArticles->getArticles();
-
-        $mediator = new ArticleMediator($yamlArticles,$doctrineArticles);
-
-        $articles = $mediator->getAllArticles();
-
-
-
-
-        dump($articles);
-        die;
     }
 }

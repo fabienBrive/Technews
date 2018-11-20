@@ -6,7 +6,7 @@ data:
     featuredimage : '6.jpg'
     special : false
     spotlight : true
-    datecreation : 2017-02-26 09:37:18
+    datecreation : 2018-02-30 09:37:18
     categorie:
       id : 2
       libelle : 'Business'
@@ -22,7 +22,7 @@ data:
     featuredimage: '4.jpg'
     special: false
     spotlight: false
-    datecreation: 2016-02-26 09:37:18
+    datecreation: 2018-02-29 09:37:18
     categorie:
       id: 3
       libelle: 'Computing'
@@ -38,7 +38,7 @@ data:
     featuredimage: '5.jpg'
     special: false
     spotlight: true
-    datecreation: 2018-02-26 09:37:18
+    datecreation: 2018-02-28 09:37:18
     categorie:
       id: 4
       libelle: Tech'

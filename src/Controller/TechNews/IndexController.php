@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\TechNews;
 
+use App\Article\Mediator\ArticleCatalogue;
 use App\Article\Provider\YamlProvider;
 use App\Entity\Article;
 use App\Entity\Categorie;
@@ -16,15 +17,18 @@ class IndexController extends Controller
      * @param YamlProvider $yamlProvider
      * @return Response
      */
-    public function index(YamlProvider $yamlProvider)
+    public function index(YamlProvider $yamlProvider, ArticleCatalogue $catalogue)
     {
         $repository = $this->getDoctrine()
             ->getRepository(Article::class);
         # Récupération des Articles depuis YamlProvider
         # $articles = $yamlProvider->getArticles();
-        $articles = $repository->findAll();
+        # $articles = $repository->findAll();
+
+        $articles = $catalogue->findAll();
         $spotlight = $repository->findSpotlightArticles();
-        # dump($articles);
+
+         dump($spotlight);
         # return new Response("<html><body><h1>PAGE D'ACCUEIL</h1></body></html>");
         return $this->render('index/index.html.twig', [
             'articles' => $articles,

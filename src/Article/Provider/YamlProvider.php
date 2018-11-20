@@ -37,23 +37,6 @@ class YamlProvider
                 $this->kernel->getCacheDir() . '/yaml-article.php'
             )
         );
-
-        foreach ($articles as $article) {
-            $newArticle = new Article(
-                $article['id'],
-                $article['titre'],
-                $this->slugify($article['titre']),
-                $article['contenu'],
-                $article['featuredimage'],
-                $article['special'],
-                $article['spotlight'],
-                $article['datecreation'],
-                $article['categorie'],
-                $article['auteur']
-            );
-            $articles[] = $newArticle;
-        }
-
         return $articles;
     }
 }

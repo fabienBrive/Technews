@@ -38,3 +38,34 @@ services:
     App\Article\ArticleRequestUpdateHandler:
         arguments:
             $articleAssetsDir: '%articles_assets_dir%'
+
+# Solution 1 :
+#    App\Article\Mediator\ArticleCatalogue:
+#        calls:
+#            - ['addSource', ['@App\Article\Mediator\Sources\YamlSource']]
+#            - ['addSource', ['@App\Article\Mediator\Sources\DoctrineSource']]
+
+
+# Solution 2 :
+#    App\Article\Mediator\Sources\YamlSource:
+#        tags:
+#            - app.article_source
+#
+#    App\Article\Mediator\Sources\DoctrineSource:
+#        tags:
+#            - app.article_source
+#
+#    App\Article\Mediator\ArticleCatalogue:
+#        calls:
+#            - ['setSources', [!tagged app.article_source]]
+
+
+# Solution 3 :
+    _instanceof:
+        App\Article\Mediator\ArticleAbstractSource:
+            tags:
+                - app.article_source
+
+#    App\Article\Mediator\ArticleCatalogue:
+#        calls:
+#            - ['setSources', [!tagged app.article_source]]
