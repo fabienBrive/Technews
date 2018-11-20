@@ -1,3 +1,3 @@
-footer.categories: __footer.categories
-footer.tag.search: __footer.tag.search
-footer.legals: __footer.legals
+footer.categories: category
+footer.tag.search: Search by tags
+footer.legals: legals Mentions

@@ -14,6 +14,10 @@ use App\Article\ArticleRequest;
 use App\Article\ArticleRequestHandler;
 use App\Article\ArticleRequestUpdateHandler;
 use App\Article\ArticleType;
+use App\Article\Mediator\ArticleMediator;
+use App\Article\Mediator\DoctrineSource;
+use App\Article\Mediator\YamlMediator;
+use App\Article\Provider\YamlProvider;
 use App\Controller\HelperTrait;
 use App\Entity\Article;
 use App\Entity\Categorie;
@@ -137,10 +141,10 @@ class ArticleController extends Controller
     /**
      * Permet à l'auteur, un Editeur ou un Admin d'éditer/modifier un article
      * @Route({
-     *     "fr": "/editer-un-article/{id<\d+>}.html"
-     *      "en": "/edit-article/{id<\d+>}.html
-     * "}, name="article_edit")
-     * @Security("article.isAuteur(user) or has_role('RROLE_EDITEUR')")
+     *     "fr": "/editer-un-article/{id<\d+>}.html",
+     *     "en": "/edit-article/{id<\d+>}.html"
+     * }, name="article_edit")
+     * @Security("article.isAuteur(user) or has_role('ROLE_EDITEUR')")
      * @param Article $article
      * @param Request $request
      * @param Packages $packages
@@ -185,5 +189,27 @@ class ArticleController extends Controller
         return $this->render('article/form.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/test-mediator", name="index_testMediator")
+     * @param YamlProvider $yamlArticles
+     * @param DoctrineSource $doctrineArticles
+     * @return Response
+     */
+    public function testMediator(YamlProvider $yamlArticles, DoctrineSource $doctrineArticles)
+    {
+        $articlesD = $doctrineArticles->getArticles();
+        $articlesY = $yamlArticles->getArticles();
+
+        $mediator = new ArticleMediator($yamlArticles,$doctrineArticles);
+
+        $articles = $mediator->getAllArticles();
+
+
+
+
+        dump($articles);
+        die;
     }
 }

@@ -1,6 +1,6 @@
-nav.home: __nav.home
-nav.deconnexion: __nav.deconnexion
-nav.connexion: __nav.connexion
-nav.inscription: __nav.inscription
-nav.search.placeholder: __nav.search.placeholder
-nav.search.btn: __nav.search.btn
+nav.home: Accueil
+nav.deconnexion: Deconnexion
+nav.connexion: Connexion
+nav.inscription: Inscription
+nav.search.placeholder: Rechercher...
+nav.search.btn: Rechercher

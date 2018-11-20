@@ -35,12 +35,12 @@ class IndexController extends Controller
      * Page permettant d'afficher les articles
      * d'une catégorie.
      * @Route({
-     *     "fr": "/{_locale}/categorie/{slug<\w+>}"
+     *     "fr": "/{_locale}/categorie/{slug<\w+>}",
      *     "en": "/{_locale}/category/{slug<\w+>}"
      * },
      *     name="index_categorie",
      *     defaults={
-     *          "slug":"breaking-news"
+     *          "slug":"breaking-news",
      *          "locale": "fr"
      *     },
      *     requirements={"slug"="\w+"},
@@ -77,7 +77,7 @@ class IndexController extends Controller
      * Afficher un Article
      * @Route("/{_locale}/{categorie<\w+>}/{slug}_{id<\d+>}.html",
      *     name="index_article",
-     *     default= "locale": "fr")
+     *     defaults= {"locale": "fr"})
      * @param Article $article
      * @return Response
      */

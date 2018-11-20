@@ -1,10 +1,10 @@
-sidebar.hello: __sidebar.hello
-sidebar.article.edit: __sidebar.article.edit
-'creer un article': '__creer un article'
-sidebar.: __sidebar.
-sidebar.newsletter.title: __sidebar.newsletter.title
-sidebar.newsletter.description: __sidebar.newsletter.description
-sidebar.newsletter.placeholder: __sidebar.newsletter.placeholder
-sidebar.newsletter.bouton: __sidebar.newsletter.bouton
-sidebar.Socialconnect: __sidebar.Socialconnect
-special.title: __special.title
+sidebar.hello: Hello
+sidebar.article.edit: edit an article
+'creer un article': create an article
+sidebar.: Sidebar
+sidebar.newsletter.title: Newsletter
+sidebar.newsletter.description: follow us to have all breaking news
+sidebar.newsletter.placeholder: Your Email...
+sidebar.newsletter.bouton: subscrib
+sidebar.Socialconnect: follow us
+special.title: Special

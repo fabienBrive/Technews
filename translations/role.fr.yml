@@ -1,4 +1,4 @@
-role.administrateur: __role.administrateur
-role.editeur: __role.editeur
-role.auteur: __role.auteur
-role.membre: __role.membre
+role.administrateur: Administrateur
+role.editeur: Editeur
+role.auteur: Auteur
+role.membre: Membre
