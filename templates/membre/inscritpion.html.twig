@@ -2,8 +2,10 @@
 
 {% set active = 'inscription' %}
 
+{% trans_default_domain 'membre' %}
+
 {% block page_title %}
-    Inscription
+    {% trans from "nav" %}nav.inscription{% endtrans %}
 {% endblock %}
 
 {% block stylesheets %}
@@ -16,7 +18,7 @@
 
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
-            <h3>Inscrivez-vous</h3>
+            <h3>{% trans from "nav" %}nav.inscription{% endtrans %}</h3>
             {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
         </div>
     </div>

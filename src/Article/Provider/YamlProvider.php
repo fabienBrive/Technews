@@ -9,16 +9,34 @@
 namespace App\Article\Provider;
 
 
-use Symfony\Component\Yaml\Yaml;
+use App\Controller\HelperTrait;
+use App\Entity\Article;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class YamlProvider
 {
+    use HelperTrait;
+
+    private $kernel;
+
     /**
-     *
+     * YamlProvider constructor.
+     */
+    public function __construct(KernelInterface $kernel)
+    {
+        $this->kernel = $kernel;
+    }
+
+
+    /**
+     * Retourne les articles .yaml sous forme de tableau
      */
     public function getArticles()
     {
-        $articles = Yaml::parseFile(__DIR__ . '/Articles.yaml');
-        return $articles['data'];
+        $articles = unserialize( file_get_contents(
+                $this->kernel->getCacheDir() . '/yaml-article.php'
+            )
+        );
+        return $articles;
     }
 }

@@ -2,8 +2,10 @@
 
 {% set active = 'newarticle' %}
 
+{% trans_default_domain 'article' %}
+
 {% block page_title %}
-    Rédiger un Article
+    {{ 'rediger un article' | trans }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -21,7 +23,7 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <h3>Rédiger un Article</h3>
+            <h3>{{ 'rediger un article' | trans }}</h3>
             {% form_theme form 'form/article.html.twig' %}
             {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
         </div>

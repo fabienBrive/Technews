@@ -77,6 +77,14 @@ class Membre implements UserInterface
         return $this->prenom;
     }
 
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;

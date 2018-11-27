@@ -32,7 +32,4 @@ class MembreEvent extends Event
     {
         return $this->membre;
     }
-
-
-
 }

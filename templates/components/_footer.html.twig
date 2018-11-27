@@ -1,3 +1,5 @@
+{% trans_default_domain 'footer' %}
+
 </div>
 </div>
 <!--footer-->
@@ -9,26 +11,22 @@
                     <a href="{{ path('index') }}" class="logo">
                         <img alt="" src="{{ asset('images/logo_footer.png') }}" />
                     </a>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
                 </div>
             </div>
             <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
-                <h3>NOS CATEGORIES</h3>
+                <h3>{{ 'footer.categories'|trans }}</h3>
                 <ul class="list-category">
-                    <li><a href="{{ path('index') }}">Accueil</a></li>
-                    <li><a href="{{ path('index_categorie', {
-                            categorie : 'buisness'
-                        }) }}">Business</a></li>
-                    <li><a href="{{  path('index_categorie', {
-                            categorie : 'computing'
-                        }) }}">Computing</a></li>
-                    <li><a href="{{  path('index_categorie', {
-                            categorie : 'tech'
-                        }) }}">Tech</a></li>
+                    {% for categorie in categories %}
+                        <li {{ active == categorie.slug ? 'class="current"'}} >
+                            <a href="{{  path('index_categorie', {
+                                slug: categorie.slug
+                            }) }}">{{ categorie.nom }}</a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-12">
-                <h3>RECHERCHE PAR TAGS</h3>
+                <h3>{{ 'footer.tag.search'|trans }}</h3>
 
                 <div class="list-tags">
                     <a href="#">iPhone 7</a>
@@ -49,7 +47,7 @@
         <div class="allright">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                    <p> © 2017 <a href="#">TECH NEWS</a>. All rights reserved.</p>
+                    <p> © 2017 <a href="#">TECH NEWS</a>{{ 'footer.legals' | trans }}</p>
                 </div>
 
                 <div class="col-sm-6 col-xs-12">

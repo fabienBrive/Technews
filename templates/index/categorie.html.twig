@@ -61,24 +61,11 @@
             {% else %}
 
                 <div class="alert alert-danger">
-                    <strong>Aucune publication pour le moment</strong>
+                    <strong>{{ 'categorie.message.empty' }}</strong>
                 </div>
 
             {% endif %}
-
-            {#<div class="paging">
-                <a href="#">Prev</a>
-                <a href="#" class="current">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">Next</a>
-            </div>#}
-
         </div>
-        {# Sidebar #}
-        {#{% include 'components/_sidebar.html.twig' %}#}
         {{ render(controller('App\\Controller\\Technews\\IndexController::sidebar')) }}
     </div>
 {% endblock %}

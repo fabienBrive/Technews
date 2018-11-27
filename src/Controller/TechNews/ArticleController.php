@@ -14,6 +14,12 @@ use App\Article\ArticleRequest;
 use App\Article\ArticleRequestHandler;
 use App\Article\ArticleRequestUpdateHandler;
 use App\Article\ArticleType;
+use App\Article\Mediator\ArticleMediator;
+use App\Article\Mediator\DoctrineProvider;
+use App\Article\Mediator\DoctrineSource;
+use App\Article\Mediator\YamlMediator;
+use App\Article\Mediator\YamlSource;
+use App\Article\Provider\YamlProvider;
 use App\Controller\HelperTrait;
 use App\Entity\Article;
 use App\Entity\Categorie;
@@ -29,6 +35,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Yaml\Yaml;
 
 
 class ArticleController extends Controller
@@ -89,7 +96,10 @@ class ArticleController extends Controller
 
     /**
      * Formulaire pour ajouter un article.
-     * @Route("/creer-un-article", name="article_new")
+     * @Route({
+     *     "fr": "/creer-un-article.html",
+     *     "en": "/create-article.html"
+     * }, name="article_new")
      * @Security("has_role('ROLE_AUTEUR')")
      * @param Request $request
      * @param ArticleRequestHandler $articleRequestHandler
@@ -133,8 +143,11 @@ class ArticleController extends Controller
 
     /**
      * Permet à l'auteur, un Editeur ou un Admin d'éditer/modifier un article
-     * @Route("/editer-un-article/{id<\d+>}.html", name="article_edit")
-     * @Security("article.isAuteur(user) or has_role('RROLE_EDITEUR')")
+     * @Route({
+     *     "fr": "/editer-un-article/{id<\d+>}.html",
+     *     "en": "/edit-article/{id<\d+>}.html"
+     * }, name="article_edit")
+     * @Security("article.isAuteur(user) or has_role('ROLE_EDITEUR')")
      * @param Article $article
      * @param Request $request
      * @param Packages $packages

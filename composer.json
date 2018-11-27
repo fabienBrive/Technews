@@ -17,8 +17,10 @@
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "*",
         "symfony/security-csrf": "*",
+        "symfony/translation": "4.1.*",
         "symfony/validator": "*",
         "symfony/yaml": "*",
+        "tightenco/collect": "^5.7",
         "twig/extensions": "^1.5"
     },
     "require-dev": {
